@@ -1,4 +1,5 @@
 ﻿// include files
+#define _CRT_SECURE_NO_WARNINGS //shut up VS, sscanf is safe here
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
@@ -21,7 +22,7 @@ void getLine(char* buffer, int count);
 
 int main() {
     // display a greeting and the current working directory
-    printf("greeting\n\n");
+    printf("for one final time, it's maya\n\n");
     errno = 0;
     char* buf = getcwd(NULL, 0);    // allocates a buffer large enough to hold the path
     if (buf == NULL) {
@@ -43,13 +44,13 @@ int main() {
 
     populateBST(iomBasePtr);
     while (true) {
-        printf("Enter day in November 2024:");
+        printf("Enter day in November 2024: ");
         char buffer[5];
         int date;
         getLine(buffer, 5);
         if (buffer[0] == '\0')
             break;
-        sscanf_s(buffer, "%i", &date);
+        sscanf(buffer, "%i", &date);
         if (date > 30 || date < 1) {
             printf("Invalid input.\n");
             continue;
@@ -59,8 +60,11 @@ int main() {
         time->tm_mon = 10; //november
         time->tm_mday = date;
         struct weather_data* weather = searchTree(mktime(time));
-        printf("Weather data for 11/%i/2024: Temperature: %f C. Humidity: %f%%.\n",
-            date, weather->temperature, weather->humidity);
+        if (weather == NULL)
+            printf("Entry not found.");
+        else
+            printf("Weather data for 11/%i/2024: Temperature: %f C. Humidity: %f%%.\n",
+                date, weather->temperature, weather->humidity);
     }
 
    

@@ -1,0 +1,22 @@
+COMPILER = gcc
+CFLAGS = -std=c99
+IOMPATH = ./iom361_r2
+OBJECTS = iom361_r2.o WeatherSearchTree.o float_rndm.o
+EXECUTABLE = WeatherSearch
+
+
+$(EXECUTABLE) : Program.c $(OBJECTS)
+	$(COMPILER) -o $(@) $^ -lm
+
+iom361_r2.o : $(IOMPATH)/iom361_r2.c $(IOMPATH)/iom361_r2.h $(IOMPATH)/float_rndm.h
+	$(COMPILER) $(CFLAGS) -c $< 
+
+float_rndm.o : $(IOMPATH)/float_rndm.c $(IOMPATH)/float_rndm.h
+	$(COMPILER) $(CFLAGS) -c $< 
+
+WeatherSearchTree.o : WeatherSearchTree.c WeatherSearchTree.h
+	$(COMPILER) $(CFLAGS) -c $< 
+
+clean :
+	rm $(OBJECTS) $(EXECUTABLE)
+

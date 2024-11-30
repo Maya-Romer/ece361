@@ -1,0 +1,108 @@
+Part 1: see WeatherSearchTree.c /.h
+
+Part 2:
+int main() {
+    for (int i = 0; i < 20; i++) {
+        struct weather_data* weather = malloc(sizeof(struct weather_data));
+        weather->humidity = (rand() / (float)RAND_MAX) * 100;
+        weather->temperature = 32 + (rand() / (float)RAND_MAX) * 60;
+        weather->timestamp = 1704070800 + (rand() / (float)RAND_MAX) * 31622400; //random unix timestamp in 2024
+        insertWeatherDataIntoTree(weather);
+    }
+    printTreeInOrder();
+    deleteTree();
+    insertWeatherDataIntoTree(NULL); //should result in error message
+    printTreeInOrder(); //should not print anything
+}
+
+output:
+2024-1-2: Temperature: 39.144993, Humidity: 44.569229
+2024-1-9: Temperature: 82.408646, Humidity: 29.728079
+2024-3-11: Temperature: 65.815125, Humidity: 0.125126
+2024-3-26: Temperature: 59.724846, Humidity: 14.233833
+2024-4-7: Temperature: 55.546249, Humidity: 61.149937
+2024-4-21: Temperature: 62.812096, Humidity: 71.050140
+2024-5-13: Temperature: 37.484177, Humidity: 1.498459
+2024-6-13: Temperature: 71.782707, Humidity: 16.623432
+2024-6-24: Temperature: 67.100555, Humidity: 80.874046
+2024-7-9: Temperature: 80.156372, Humidity: 78.331856
+2024-7-13: Temperature: 54.672813, Humidity: 0.891140
+2024-7-16: Temperature: 87.543076, Humidity: 95.590073
+2024-8-9: Temperature: 68.105835, Humidity: 57.118439
+2024-8-10: Temperature: 35.422344, Humidity: 35.212257
+2024-9-22: Temperature: 84.558365, Humidity: 30.195013
+2024-10-12: Temperature: 44.576065, Humidity: 86.223946
+2024-10-27: Temperature: 85.757744, Humidity: 35.029144
+2024-11-10: Temperature: 42.446487, Humidity: 74.660477
+2024-12-27: Temperature: 41.953918, Humidity: 14.731285
+2024-12-31: Temperature: 91.807732, Humidity: 84.365372
+Cannot add null data.
+C:\Users\Maya\source\repos\ECE103\x64\Debug\ECE103.exe (process 20892) exited with code 0.
+
+Part 3: See program.c populateBST() and shuffle()
+
+Part 4: See program.c main()
+
+Part 5:
+maya@LAPTOP-U4SCUB8J:~/code$ ./WeatherSearch
+for one final time, it's maya
+
+Current working directory: /home/maya/code
+
+
+RedDC= 0% (  0), GrnDC= 0% (  0), BluDC= 0% (  0)       Enable=OFF
+Enter day in November 2024: 1
+Weather data for 11/1/2024: Temperature: 21.145630 C. Humidity: 66.941071%.
+Enter day in November 2024: 15
+Weather data for 11/15/2024: Temperature: 25.284958 C. Humidity: 58.364773%.
+Enter day in November 2024: 30
+Weather data for 11/30/2024: Temperature: 32.807159 C. Humidity: 78.953079%.
+Enter day in November 2024: 0
+Invalid input.
+Enter day in November 2024: 31
+Invalid input.
+Enter day in November 2024:
+2024-11-1: Temperature: 21.145630, Humidity: 66.941071
+2024-11-2: Temperature: 19.762611, Humidity: 75.022125
+2024-11-3: Temperature: 14.016342, Humidity: 68.086624
+2024-11-4: Temperature: 5.220604, Humidity: 72.829346
+2024-11-5: Temperature: 24.824524, Humidity: 84.515572
+2024-11-6: Temperature: 2.414131, Humidity: 55.430794
+2024-11-7: Temperature: 23.365593, Humidity: 78.543663
+2024-11-8: Temperature: 31.634903, Humidity: 68.813034
+2024-11-9: Temperature: 8.012199, Humidity: 82.272812
+2024-11-10: Temperature: 3.086662, Humidity: 83.530518
+2024-11-11: Temperature: 19.962120, Humidity: 79.772659
+2024-11-12: Temperature: 21.372223, Humidity: 57.463169
+2024-11-13: Temperature: 10.656738, Humidity: 82.800484
+2024-11-14: Temperature: 23.364449, Humidity: 68.916412
+2024-11-15: Temperature: 25.284958, Humidity: 58.364773
+2024-11-16: Temperature: 0.677299, Humidity: 64.797783
+2024-11-17: Temperature: 17.856789, Humidity: 72.520065
+2024-11-18: Temperature: 34.789848, Humidity: 82.319832
+2024-11-19: Temperature: 0.707817, Humidity: 59.294891
+2024-11-20: Temperature: 17.674065, Humidity: 76.885033
+2024-11-21: Temperature: 4.445457, Humidity: 72.218513
+2024-11-22: Temperature: 26.035118, Humidity: 78.838158
+2024-11-23: Temperature: 12.555885, Humidity: 74.431519
+2024-11-24: Temperature: 8.926392, Humidity: 72.629929
+2024-11-25: Temperature: 19.488525, Humidity: 65.297028
+2024-11-26: Temperature: 18.853760, Humidity: 58.814907
+2024-11-27: Temperature: 5.914497, Humidity: 59.479523
+2024-11-28: Temperature: 7.324409, Humidity: 69.204041
+2024-11-29: Temperature: 2.659988, Humidity: 81.304840
+2024-11-30: Temperature: 32.807159, Humidity: 78.953079
+maya@LAPTOP-U4SCUB8J:~/code$
+
+Part 6: See MAKEFILE
+
+Part 7: maya@LAPTOP-U4SCUB8J:~/code$ make -f MAKEFILE clean
+rm iom361_r2.o WeatherSearchTree.o float_rndm.o WeatherSearch
+maya@LAPTOP-U4SCUB8J:~/code$ make -f MAKEFILE
+gcc -std=c99 -c iom361_r2/iom361_r2.c
+gcc -std=c99 -c WeatherSearchTree.c
+gcc -std=c99 -c iom361_r2/float_rndm.c
+gcc -o WeatherSearch Program.c iom361_r2.o WeatherSearchTree.o float_rndm.o -lm
+maya@LAPTOP-U4SCUB8J:~/code$
+
+Part 8: 
