@@ -59,7 +59,7 @@ void insertWeatherDataIntoTree(struct weather_data* data) {
     }
 }
 
-struct node* searchTree(time_t timestamp) {
+struct weather_data* searchTree(time_t timestamp) {
     struct node* current = rootNode;
 
     while (current->data->timestamp != timestamp) {
@@ -74,7 +74,7 @@ struct node* searchTree(time_t timestamp) {
         }
     }
 
-    return current;
+    return current->data;
 }
 
 void printInOrderFrom(struct node* node) {

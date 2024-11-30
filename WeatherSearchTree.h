@@ -13,6 +13,6 @@ struct node {
 };
 
 void insertWeatherDataIntoTree(struct weather_data* data);
-struct node* searchTree(time_t timestamp);
+struct weather_data* searchTree(time_t timestamp);
 void printTreeInOrder();
 void deleteTree();
