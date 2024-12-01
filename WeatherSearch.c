@@ -1,4 +1,9 @@
-﻿// include files
+﻿//WeatherSearch.c
+//Code written by Maya Romer (mayarom@pdx.edu)
+//Uses the iom361 interface to populate a binary tree with weather data for a month
+//Allows the user to search weather data by day
+
+// include files
 #define _CRT_SECURE_NO_WARNINGS //shut up VS, sscanf is safe here
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,6 +53,7 @@ int main() {
         char buffer[5];
         int date;
         getLine(buffer, 5);
+        //exit on empty line
         if (buffer[0] == '\0')
             break;
         sscanf(buffer, "%i", &date);
@@ -73,6 +79,7 @@ int main() {
     return 0;
 }
 
+//populates the binary search tree with weather for the month of November.
 void populateBST(void* iomBasePtr) {
     struct weather_data* novemberWeather[30];
 

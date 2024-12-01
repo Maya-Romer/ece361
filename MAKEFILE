@@ -5,7 +5,7 @@ OBJECTS = iom361_r2.o WeatherSearchTree.o float_rndm.o
 EXECUTABLE = WeatherSearch
 
 
-$(EXECUTABLE) : Program.c $(OBJECTS)
+$(EXECUTABLE) : WeatherSearch.c $(OBJECTS)
 	$(COMPILER) -o $(@) $^ -lm
 
 iom361_r2.o : $(IOMPATH)/iom361_r2.c $(IOMPATH)/iom361_r2.h $(IOMPATH)/float_rndm.h

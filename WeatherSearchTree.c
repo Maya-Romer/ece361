@@ -1,9 +1,17 @@
+//WeatherSearch.c
+//Adapted from the Karumanchi sample code by Maya Romer (mayarom@pdx.edu)
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
 
 #include "WeatherSearchTree.h"
+
+struct node {
+    struct weather_data* data;
+    struct node* leftChild;
+    struct node* rightChild;
+};
 
 struct node* rootNode = NULL;
 

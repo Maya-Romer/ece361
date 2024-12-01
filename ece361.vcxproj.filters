@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Program.c">
+    <ClCompile Include="WeatherSearch.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WeatherSearchTree.c">

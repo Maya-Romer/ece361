@@ -21,7 +21,7 @@
   <ItemGroup>
     <ClCompile Include="iom361_r2\float_rndm.c" />
     <ClCompile Include="iom361_r2\iom361_r2.c" />
-    <ClCompile Include="Program.c" />
+    <ClCompile Include="WeatherSearch.c" />
     <ClCompile Include="WeatherSearchTree.c" />
   </ItemGroup>
   <ItemGroup>
